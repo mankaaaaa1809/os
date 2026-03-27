@@ -12,6 +12,11 @@ int main(int argc, char* args[]) {
 	const char* binaryFilename = args[0];
 	const int count = std::atoi(args[1]);
 
+	if (count <= 0) {
+		std::cerr << "Count must be positive\n";
+		return 1;
+	}
+
 	std::ofstream fout(binaryFilename, std::ios::binary);
 	if (!fout) {
 		std::cerr << "Couldn't open file\n";
