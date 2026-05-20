@@ -1,4 +1,4 @@
-## "Windows Thread Synchronization Lab"
+## Lab1
 
 ## Description
 This console application demonstrates multithreading in Windows. It creates an integer array, then launches two threads: one to find the minimum and maximum values, and another to calculate the average. After both threads complete, the main thread replaces all occurrences of the min and max elements with the average value and outputs the modified array. The implementation uses WinAPI threads, mutexes, and console synchronization.
