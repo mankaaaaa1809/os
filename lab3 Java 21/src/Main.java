@@ -1,8 +1,10 @@
-// MarkerArray.java
+// Main.java
 //
 // lab3 Java 21
 //
 // created by Anhelina Mankewich, 2 course, group 12
+
+package src;
 
 import java.util.Scanner;
 

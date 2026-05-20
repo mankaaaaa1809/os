@@ -4,8 +4,8 @@
 //
 // created by Anhelina Mankewich, 2 course, group 12
 
-import java.util.ArrayList;
-import java.util.List;
+package src;
+
 import java.util.concurrent.locks.ReentrantLock;
 
 public class MarkerArray {

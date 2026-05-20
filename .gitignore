@@ -1,3 +1,6 @@
 *.vsidx
 *.o
 *.exe
+.vscode/
+bin/
+lib/
