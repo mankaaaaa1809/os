@@ -1,5 +1,16 @@
-## Overview
-This laboratory work implements a multithreaded console application where multiple marker threads concurrently attempt to write their IDs into shared integer array cells. The main thread coordinates marker lifecycle: starting all markers simultaneously, waiting until all become blocked, terminating a selected marker, and resuming the remaining ones. The implementation requires careful thread synchronization using mutexes and condition variables, handling deadlock situations, and ensuring memory safety during concurrent access.
+## Laboratory work 3
+
+## Description
+A console application demonstrating thread synchronization using mutexes and condition variables. Multiple marker threads concurrently write their IDs into a shared integer array. The main thread coordinates marker lifecycle: starts all markers simultaneously, waits until all become blocked, terminates a selected marker, clears its marks, and resumes remaining markers. Implements deadlock-free coordination with atomic flags and per-thread condition variables.
+
+## Installation
+Clone repository. For C++: ensure GCC with C++17 or Visual Studio 2022. Run `make all`. For Java: ensure JDK 21+, download JUnit Platform Console Standalone 1.10.0 to `lib/` folder, run `compile.bat`.
+
+## Usage
+C++: `make run` or `./bin/lab3.exe`. Java: `run.bat`. Tests: C++ `make test`, Java `test_console.bat`.
+
+## Links and Additional Notes
+Requires C++17 threads and Java Concurrency API. No external dependencies except JUnit for Java tests. Developed for educational purposes on thread synchronization patterns.
 
 ## Java and C++ versions comparison
 
