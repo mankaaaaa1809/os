@@ -1,0 +1,37 @@
+// readers_writer.h
+//
+// lab5 C++17
+//
+// created by Anhelina Mankewich, 2 course, group 12
+
+#ifndef READERS_WRITER_H
+#define READERS_WRITER_H
+
+#include <mutex>
+#include <vector>
+
+struct ReadersWriterLock {
+    std::mutex read_count_mtx;
+    std::mutex resource_mtx;
+    int read_count;
+
+    ReadersWriterLock();
+    void lock_read();
+    void unlock_read();
+    void lock_write();
+    void unlock_write();
+};
+
+class RecordLocks {
+public:
+    explicit RecordLocks(int size);
+    void lock_read(int index);
+    void unlock_read(int index);
+    void lock_write(int index);
+    void unlock_write(int index);
+
+private:
+    std::vector<ReadersWriterLock> locks;
+};
+
+#endif
