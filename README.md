@@ -9,8 +9,7 @@ Create directories: `mkdir obj bin`. Run `make` to build `receiver.exe` and `sen
 ## Usage
 ``` cmd
 make all
-cd bin
-receiver.exe
+make run
 ```
 
 ## Links and Additional Notes
