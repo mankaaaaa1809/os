@@ -34,30 +34,30 @@ void ReadersWriterLock::unlock_write() {
 
 RecordLocks::RecordLocks(int size) {
     for (int i = 0; i < size; ++i) {
-        locks.push_back(ReadersWriterLock());
+        locks.push_back(std::make_unique<ReadersWriterLock>());
     }
 }
 
 void RecordLocks::lock_read(int index) {
     if (index >= 0 && index < static_cast<int>(locks.size())) {
-        locks[index].lock_read();
+        locks[index]->lock_read();
     }
 }
 
 void RecordLocks::unlock_read(int index) {
     if (index >= 0 && index < static_cast<int>(locks.size())) {
-        locks[index].unlock_read();
+        locks[index]->unlock_read();
     }
 }
 
 void RecordLocks::lock_write(int index) {
     if (index >= 0 && index < static_cast<int>(locks.size())) {
-        locks[index].lock_write();
+        locks[index]->lock_write();
     }
 }
 
 void RecordLocks::unlock_write(int index) {
     if (index >= 0 && index < static_cast<int>(locks.size())) {
-        locks[index].unlock_write();
+        locks[index]->unlock_write();
     }
 }

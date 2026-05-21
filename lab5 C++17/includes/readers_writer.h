@@ -9,6 +9,7 @@
 
 #include <mutex>
 #include <vector>
+#include <memory>
 
 struct ReadersWriterLock {
     std::mutex read_count_mtx;
@@ -16,6 +17,12 @@ struct ReadersWriterLock {
     int read_count;
 
     ReadersWriterLock();
+    ~ReadersWriterLock() = default;
+    ReadersWriterLock(const ReadersWriterLock&) = delete;
+    ReadersWriterLock& operator=(const ReadersWriterLock&) = delete;
+    ReadersWriterLock(ReadersWriterLock&&) = delete;
+    ReadersWriterLock& operator=(ReadersWriterLock&&) = delete;
+
     void lock_read();
     void unlock_read();
     void lock_write();
@@ -31,7 +38,7 @@ public:
     void unlock_write(int index);
 
 private:
-    std::vector<ReadersWriterLock> locks;
+    std::vector<std::unique_ptr<ReadersWriterLock>> locks;
 };
 
 #endif

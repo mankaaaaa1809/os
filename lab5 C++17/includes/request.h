@@ -11,7 +11,7 @@
 #include <windows.h>
 #include <string>
 
-static const char* PIPE_NAME = "\\\\.\\pipe\\EmployeePipe";
+extern const char* PIPE_NAME;
 
 enum RequestType {
     REQ_READ = 0,
