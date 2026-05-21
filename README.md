@@ -7,7 +7,11 @@ A C++17 implementation of interprocess communication using a single binary file 
 Create directories: `mkdir obj bin`. Run `make` to build `receiver.exe` and `sender.exe`. Requires MinGW or MSVC with C++17 support.
 
 ## Usage
-Start `receiver.exe`, enter binary file name, queue capacity, and number of senders. Launch `sender.exe` instances automatically. Use commands: `read` (receiver), `send` (sender), `exit` to terminate.
+``` cmd
+make all
+cd bin
+receiver.exe
+```
 
 ## Links and Additional Notes
 Windows only. Queue blocks when empty (receiver) or full (sender). Tested with MinGW GCC.
