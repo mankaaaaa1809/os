@@ -18,7 +18,13 @@ RECEIVER_OBJ = $(OBJDIR)/receiver.o
 SENDER_OBJ = $(OBJDIR)/sender.o
 TEST_OBJS = $(OBJDIR)/test_queue.o $(OBJDIR)/test_validation.o $(OBJDIR)/file_queue.o
 
-all: $(BINDIR)/receiver.exe $(BINDIR)/sender.exe $(BINDIR)/tests.exe
+all: $(OBJDIR) $(BINDIR) $(BINDIR)/receiver.exe $(BINDIR)/sender.exe $(BINDIR)/tests.exe
+
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
+$(BINDIR):
+	mkdir -p $(BINDIR)
 
 $(BINDIR)/receiver.exe: $(OBJECTS) $(RECEIVER_OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
@@ -36,7 +42,7 @@ $(OBJDIR)/%.o: $(TESTDIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJDIR)/*.o $(BINDIR)/*.exe
+	rm -rf $(OBJDIR) $(BINDIR)
 
 clean-test-files:
 	rm -f test_*.bin
