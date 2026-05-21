@@ -4,7 +4,7 @@
 //
 // created by Anhelina Mankewich, 2 course, group 12
 
-#include "../include/file_queue.h"
+#include "file_queue.h"
 #include <stdexcept>
 #include <cstring>
 

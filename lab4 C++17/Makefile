@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -O2 -I./include
+CXXFLAGS = -std=c++17 -Wall -O2 -I./includes
 LDFLAGS = -static
 
 OBJDIR = obj
